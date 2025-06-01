@@ -1,115 +1,103 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// pages/index.tsx
+import CircularImage from "@/module/CircularImage";
+import React, { useRef, useState } from "react";
+import Modal from "@/modals/ModalWindowImage";
+import CircularImageFull from "@/module/CircularImageFull";
+import PersonalData from "@/blocks/PersonalData";
+import LeftDownBlock from "@/blocks/LeftDownBlock";
+import InsideWorkExperience from "@/module/InsideWorkExpirience";
+import ModalLeftBlock from "@/modals/ModalWindowLeftBlock";
+import CentralBlock from "@/blocks/CentralBlock";
+import ModalCentralBlock from "@/modals/ModalWindowCentralBlock";
+import InsideAboutMe from "@/module/InsideAboutMe";
 
 export default function Home() {
-  return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    const [stateModalTop, setOpenModalTop] = useState(false);
+    const [stateModalBottom, setOpenModalBottom] = useState(false);
+    const [stateModalAboutMe, setOpenModalAboutMe] = useState(false);
+
+    const [originTop, setOriginTop] = useState({ x: 0, y: 0 });
+    const [originBottom, setOriginBottom] = useState({ x: 0, y: 0 });
+    const [originAboutMe, setOriginAboutMe] = useState({ x: 0, y: 0 });
+
+    const avatarRef = useRef<HTMLDivElement | null>(null);
+    const leftBottomRef = useRef<HTMLDivElement | null>(null);
+
+    const handleOpenModal = () => {
+        if (avatarRef.current) {
+            const rect = avatarRef.current.getBoundingClientRect();
+            setOriginTop({
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.height / 2,
+            });
+        }
+        setOpenModalTop(true);
+    };
+
+    const handleOpenModalFromBottom = () => {
+        if (leftBottomRef.current) {
+            const rect = leftBottomRef.current.getBoundingClientRect();
+            setOriginBottom({
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.height / 2,
+            });
+            setOpenModalBottom(true);
+        }
+    };
+
+    const handleOpenModalAboutMe = () => {
+        if (leftBottomRef.current) {
+            const rect = leftBottomRef.current.getBoundingClientRect();
+            setOriginAboutMe({
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.height / 2,
+            });
+            setOpenModalAboutMe(true);
+        }
+    };
+
+
+
+
+    return (
+        <div className="flex flex-col min-h-screen bg-gray-500 px-[5%]">
+            <Modal isOpen={stateModalTop} onClose={() => setOpenModalTop(false)} origin={originTop}>
+                    <CircularImageFull alt="user photo full" />
+            </Modal>
+            <ModalLeftBlock isOpen={stateModalBottom} onClose={() => setOpenModalBottom(false)} origin={originBottom}>
+                <div className="pl-1 space-y-2">
+                    <InsideWorkExperience/>
+                </div>
+            </ModalLeftBlock>
+            <ModalCentralBlock isOpen={stateModalAboutMe} onClose={() => setOpenModalAboutMe(false)} origin={originAboutMe}>
+                <div className="pl-1 space-y-2">
+                    <InsideAboutMe/>
+                </div>
+            </ModalCentralBlock>
+            <div className="flex flex-col md:flex-row flex-1 pt-[2%] pb-[2%]">
+                <div className="w-full md:w-[20%] flex flex-col rounded-tl-lg rounded-bl-lg shadow-xl max-w-full overflow-hidden">
+                    <div
+                        ref={avatarRef}
+                        className="h-[25%] cursor-zoom-in bg-gray-800 rounded-tl-lg flex items-center justify-center"
+                        onClick={handleOpenModal}
+                    >
+                        <CircularImage alt="user photo" />
+                    </div>
+                    <hr className="border-t border-gray-400 b-1"/>
+                    <div className="h-[35%] bg-gray-800 p-2 overflow-hidden">
+                        <PersonalData />
+                    </div>
+                    <hr className="border-t border-gray-400 b-1" />
+                    <div className="h-[40%] bg-gray-800 p-2 rounded-bl-lg overflow-hidden cursor-zoom-in" ref={leftBottomRef}
+                         onClick={handleOpenModalFromBottom}>
+                        <LeftDownBlock />
+                    </div>
+                </div>
+                <div className="w-px bg-gray-400"></div>
+                <div className="w-full md:w-[80%] bg-gray-700 rounded-br-lg rounded-tr-lg p-2">
+                    <CentralBlock openAboutMe={handleOpenModalAboutMe}/>
+                </div>
+            </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }

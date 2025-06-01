@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Nunito';
+    src: url('/fonts/Nunito-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Применяем шрифт глобально */
+* {
+    font-family: 'Nunito', sans-serif;
+}
