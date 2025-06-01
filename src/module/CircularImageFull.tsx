@@ -12,7 +12,7 @@ const CircularImageFull: React.FC<CircularImageProps> = ({
                                                          alt
                                                      }) => {
     return (
-        <div className="relative w-[80%] h-[80%] border-gray-700 sm:w-64 md:w-64 lg:w-100 sm:h-64 md:h-64 lg:h-100 rounded-full overflow-hidden">
+        <div className="relative w-[80%] h-[80%] border-gray-700 sm:w-80 md:w-84 lg:w-100 sm:h-80 md:h-84 lg:h-100 rounded-full overflow-hidden">
             <Image
                 src={myPhoto}
                 alt={alt}

@@ -72,8 +72,8 @@ export default function Home() {
                     <InsideAboutMe />
                 </div>
             </ModalCentralBlock>
-            <div className="flex flex-col md:flex-row flex-1 pt-[2%] pb-[2%] sm:pt-[1%] sm:pb-[1%] gap-2 sm:gap-1">
-                <div className="w-full md:w-[25%] flex flex-col rounded-lg shadow-xl max-w-full overflow-hidden">
+            <div className="flex flex-col md:flex-row flex-1 gap-2 sm:gap-1">
+                <div className="w-full md:w-[25%] my-2 flex flex-col rounded-lg shadow-xl max-w-full overflow-hidden">
                     <div
                         ref={avatarRef}
                         className="relative h-[25%] cursor-zoom-in bg-gray-800 rounded-tl-lg flex items-center justify-center"
@@ -101,7 +101,7 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className="w-full md:w-[75%] bg-gray-700 rounded-lg sm:rounded-md p-2 sm:p-3">
+                <div className=" my-2 w-full md:w-[75%] bg-gray-700 rounded-lg sm:rounded-md p-2 sm:p-3 ">
                     <CentralBlock openAboutMe={handleOpenModalAboutMe} />
                 </div>
             </div>
