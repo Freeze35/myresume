@@ -1,6 +1,6 @@
 // pages/index.tsx
 import CircularImage from "@/module/CircularImage";
-import React, { useRef, useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Modal from "@/modals/ModalWindowImage";
 import CircularImageFull from "@/module/CircularImageFull";
 import PersonalData from "@/blocks/PersonalData";
@@ -34,6 +34,26 @@ export default function Home() {
         }
         setOpenModalTop(true);
     };
+
+    useEffect(() => {
+        const handlePopState = () => {
+            if (stateModalTop) {
+                setOpenModalTop(false);
+            } else if (stateModalBottom) {
+                setOpenModalBottom(false);
+            } else if (stateModalAboutMe) {
+                setOpenModalAboutMe(false);
+            }
+        };
+
+        if (stateModalTop || stateModalBottom || stateModalAboutMe) {
+            window.addEventListener("popstate", handlePopState);
+        }
+
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+        };
+    }, [stateModalTop, stateModalBottom, stateModalAboutMe]);
 
     const handleOpenModalFromBottom = () => {
         if (leftBottomRef.current) {
