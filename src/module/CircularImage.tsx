@@ -1,7 +1,7 @@
 // module/CircularImage.tsx
 import React from "react";
 import Image from "next/image";
-import myPhoto from "../../assets/favicon.ico";
+import myPhoto from "../../public/assets/photo.png";
 
 interface CircularImageProps {
     alt: string;
