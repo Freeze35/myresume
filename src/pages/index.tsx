@@ -35,26 +35,6 @@ export default function Home() {
         setOpenModalTop(true);
     };
 
-    useEffect(() => {
-        const handlePopState = () => {
-            if (stateModalTop) {
-                setOpenModalTop(false);
-            } else if (stateModalBottom) {
-                setOpenModalBottom(false);
-            } else if (stateModalAboutMe) {
-                setOpenModalAboutMe(false);
-            }
-        };
-
-        if (stateModalTop || stateModalBottom || stateModalAboutMe) {
-            window.addEventListener("popstate", handlePopState);
-        }
-
-        return () => {
-            window.removeEventListener("popstate", handlePopState);
-        };
-    }, [stateModalTop, stateModalBottom, stateModalAboutMe]);
-
     const handleOpenModalFromBottom = () => {
         if (leftBottomRef.current) {
             const rect = leftBottomRef.current.getBoundingClientRect();
@@ -76,6 +56,18 @@ export default function Home() {
             setOpenModalAboutMe(true);
         }
     };
+
+    useEffect(() => {
+        const onPopState = () => {
+            // Закрываем все модалки
+            setOpenModalTop(false);
+            setOpenModalBottom(false);
+            setOpenModalAboutMe(false);
+        };
+
+        window.addEventListener("popstate", onPopState);
+        return () => window.removeEventListener("popstate", onPopState);
+    }, []);
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-500 px-[5%]">
