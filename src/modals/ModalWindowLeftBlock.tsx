@@ -9,7 +9,7 @@ interface ModalProps {
 }
 
 const ModalLeftBlock: React.FC<ModalProps> = ({ isOpen, onClose, children, origin }) => {
-    console.log("OriginBLOCK", origin);
+
     const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
         if (e.target === e.currentTarget) {
             onClose();

@@ -25,7 +25,7 @@ const PersonalDataContent: React.FC = () => {
                 document.body.removeChild(textarea);
             }
             setCopied(type);
-            console.log("Copied:", type); // Для отладки
+
             if (timerRef.current) clearTimeout(timerRef.current);
             timerRef.current = setTimeout(() => {
                 setCopied(null);
