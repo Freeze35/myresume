@@ -21,7 +21,7 @@ const InsideWorkExperience: React.FC = () => {
             </div>
             {/* Description */}
             <div>
-                <h3 className="text-gray-300 text-lg font-semibold sm:text-sm md:text-base lg:text-lg">Опыт работы</h3>
+                <h3 className="text-gray-300 text-lg font-semibold sm:text-sm md:text-base lg:text-lg">Описание</h3>
                 <div className="group flex-col items-center space-x-2">
                     <p className="text-gray-400 text-ellipsis overflow-hidden  sm:text-sm md:text-base lg:text-lg">
                         Работал над разработкой приложением для мобильной торговли.<br />

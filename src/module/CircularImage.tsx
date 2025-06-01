@@ -8,20 +8,23 @@ interface CircularImageProps {
     containerClassName?: string; // Для кастомизации контейнера
 }
 
-const CircularImage: React.FC<CircularImageProps> = ({ alt, containerClassName }) => {
+const CircularImage: React.FC<CircularImageProps> = ({alt, containerClassName}) => {
     return (
-        <div
-            className={`relative w-full max-w-[200px] aspect-square rounded-full overflow-hidden border-1 border-gray-700 ${containerClassName || ""}`}
-        >
-            <Image
-                src={myPhoto}
-                alt={alt}
-                layout="fill"
-                objectFit="contain"
-                className="rounded-full"
-                placeholder="blur"
-            />
-        </div>
+
+            <div
+                className={`relative w-full max-w-[200px] aspect-square rounded-full overflow-hidden border-1 border-gray-700 ${containerClassName || ""}`}
+            >
+
+                <Image
+                    src={myPhoto}
+                    alt={alt}
+                    layout="fill"
+                    objectFit="contain"
+                    className="rounded-full"
+                    placeholder="blur"
+                />
+            </div>
+
     );
 };
 

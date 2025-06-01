@@ -1,6 +1,7 @@
 // components/LeftDownBlock.tsx
 
 import React from "react";
+import {FiZoomIn} from "react-icons/fi";
 
 const LeftDownBlock: React.FC = () => {
 
@@ -10,8 +11,18 @@ const LeftDownBlock: React.FC = () => {
             <div className="pl-2 space-y-2">
                 {/* Expirience */}
                 <div>
-                    <h3 className="text-gray-300 text-lg font-semibold sm:text-sm md:text-base lg:text-lg">Опыт работы</h3>
-                    <div className="group flex-col items-center space-x-2 bg-gray-700 rounded-lg pl-2">
+                    <div className="relative flex flex-row pb-2">
+                        <h3 className="ml-2 text-gray-300 text-lg font-semibold sm:text-sm md:text-base lg:text-lg">
+                            Опыт работы
+                        </h3>
+                        <button
+                            className="absolute top-1 right-1 text-gray-400 duration-200 z-10"
+                            aria-label="Скопировать телефон"
+                        >
+                            <FiZoomIn className="w-6 h-6" />
+                        </button>
+                    </div>
+                    <div className="group flex-col items-center space-x-2 bg-gray-700 rounded-lg px-2 mx-2">
                         <p className="text-gray-300 text-ellipsis overflow-hidden whitespace-nowrap sm:text-sm md:text-base lg:text-lg">
                             Программист
                         </p>

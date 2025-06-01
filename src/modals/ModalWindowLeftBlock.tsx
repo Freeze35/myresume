@@ -30,7 +30,7 @@ const ModalLeftBlock: React.FC<ModalProps> = ({ isOpen, onClose, children, origi
                 transition={{ duration: 0.2 }}
             >
                 <motion.div
-                    className="bg-gray-800 h-[60%] w-[40%] rounded-lg flex relative"
+                    className="bg-gray-800 rounded-lg flex relative"
                     initial={false}
                     animate={{
                         x: isOpen ? 0 : origin.x - centerX,

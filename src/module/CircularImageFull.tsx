@@ -8,11 +8,11 @@ interface CircularImageProps {
     containerClassName?: string; // Для кастомизации контейнера
 }
 
-const CircularImage: React.FC<CircularImageProps> = ({
+const CircularImageFull: React.FC<CircularImageProps> = ({
                                                          alt
                                                      }) => {
     return (
-        <div className="relative w-[100%] h-[100%] border-gray-700 sm:w-32 md:w-64 lg:w-100 sm:h-32 md:h-64 lg:h-100 rounded-full overflow-hidden">
+        <div className="relative w-[80%] h-[80%] border-gray-700 sm:w-64 md:w-64 lg:w-100 sm:h-64 md:h-64 lg:h-100 rounded-full overflow-hidden">
             <Image
                 src={myPhoto}
                 alt={alt}
@@ -23,4 +23,4 @@ const CircularImage: React.FC<CircularImageProps> = ({
     );
 };
 
-export default CircularImage;
+export default CircularImageFull;

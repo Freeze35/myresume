@@ -1,6 +1,7 @@
 // components/LeftDownBlock.tsx
 
 import React from "react";
+import {FiZoomIn} from "react-icons/fi";
 
 interface CentralBlockProps {
     openAboutMe: () => void;
@@ -19,8 +20,8 @@ const CentralBlock: React.FC<CentralBlockProps> = ({openAboutMe}) => {
 
     return (
         <div
-            className="flex flex-col w-full h-full max-h-[90vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent">
-            <div className="pl-2 space-y-2 rounded-lg bg-gray-800 py-2 my-2 ">
+            className="flex flex-col w-full h-full max-h-[95vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent">
+            <div className="pl-2 space-y-2 rounded-lg bg-gray-800 py-2 my-2 position: sticky">
                 <h3 className="text-gray-300 font-semibold sm:text-sm md:text-xl lg:text-xl">
                     Golang разработчик</h3>
             </div>
@@ -119,9 +120,12 @@ const CentralBlock: React.FC<CentralBlockProps> = ({openAboutMe}) => {
             <div className="pl-2 space-y-2 rounded-lg bg-gray-800 py-2 mt-2 cursor-zoom-in"
                  onClick={() => openAboutMe()}>
                 <div>
-                    <h3 className="text-gray-300 text-lg font-semibold sm:text-sm md:text-base lg:text-lg">
-                        О себе
-                    </h3>
+                    <div className="flex justify-between items-center">
+                        <h3 className="ml-2 text-gray-300 text-lg font-semibold sm:text-sm md:text-base lg:text-lg py-2">
+                            О себе
+                        </h3>
+                        <FiZoomIn className="text-gray-400 w-6 h-6 mr-4" />
+                    </div>
                     <div
                         className="group flex-col items-center space-x-2 max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent pr-2">
                         <div className="text-gray-400 flex flex-col rounded-lg px-2 ">

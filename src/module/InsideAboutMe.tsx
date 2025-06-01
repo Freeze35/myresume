@@ -9,6 +9,7 @@ const InsideAboutMe: React.FC = () => {
         <div className="pl-4 pt-4 space-y-2">
 
             <div className="pr-4">
+
                 <h3 className="text-gray-300 text-lg font-semibold sm:text-sm md:text-base lg:text-lg py-2">
                     О себе
                 </h3>
