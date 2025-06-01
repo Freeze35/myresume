@@ -238,7 +238,7 @@ const CentralBlock: React.FC<CentralBlockProps> = ({openAboutMe}) => {
                                 </p>
                             </div>
 
-                            <div className="bg-gray-900 rounded-lg p-4 mt-4">
+                            {/*<div className="bg-gray-900 rounded-lg p-4 mt-4">
                                 <p className="text-gray-200 pr-2 pb-2 sm:text-sm md:text-base lg:text-lg">
                                     Поиск книг с Google Books API
                                 </p>
@@ -262,7 +262,7 @@ const CentralBlock: React.FC<CentralBlockProps> = ({openAboutMe}) => {
                                     Настроил деплой на Netlify.
                                     Технологии: JavaScript, Google Books API, Netlify
                                 </p>
-                            </div>
+                            </div>*/}
 
                             <p className="text-gray-200 pr-2 py-2 sm:text-sm md:text-base lg:text-lg">
                                 P.S
