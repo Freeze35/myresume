@@ -19,6 +19,7 @@ const CircularImage: React.FC<CircularImageProps> = ({ alt, containerClassName }
                 layout="fill"
                 objectFit="contain"
                 className="rounded-full"
+                placeholder="blur"
             />
         </div>
     );

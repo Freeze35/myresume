@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import myPhoto from "../../public/assets/photo.png"; // Импортированное изображение
-
 interface CircularImageProps {
     alt: string;
     width?: number;
@@ -18,6 +17,7 @@ const CircularImage: React.FC<CircularImageProps> = ({
                 src={myPhoto}
                 alt={alt}
                 fill
+                placeholder="blur"
             />
         </div>
     );
