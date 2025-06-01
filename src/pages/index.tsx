@@ -33,6 +33,7 @@ export default function Home() {
             });
         }
         setOpenModalTop(true);
+        window.history.pushState({ modal: "top" }, "", "#modal-top");
     };
 
     const handleOpenModalFromBottom = () => {
@@ -43,6 +44,7 @@ export default function Home() {
                 y: rect.top + rect.height / 2,
             });
             setOpenModalBottom(true);
+            window.history.pushState({ modal: "bottom" }, "", "#modal-bottom");
         }
     };
 
@@ -54,20 +56,20 @@ export default function Home() {
                 y: rect.top + rect.height / 2,
             });
             setOpenModalAboutMe(true);
+            window.history.pushState({ modal: "about-me" }, "", "#modal-about-me");
         }
     };
 
     useEffect(() => {
-        const onPopState = () => {
-            // Закрываем все модалки
-            setOpenModalTop(false);
-            setOpenModalBottom(false);
-            setOpenModalAboutMe(false);
+        const handlePopstate = () => {
+            if (stateModalTop) setOpenModalTop(false);
+            if (stateModalBottom) setOpenModalBottom(false);
+            if (stateModalAboutMe) setOpenModalAboutMe(false);
         };
 
-        window.addEventListener("popstate", onPopState);
-        return () => window.removeEventListener("popstate", onPopState);
-    }, []);
+        window.addEventListener("popstate", handlePopstate);
+        return () => window.removeEventListener("popstate", handlePopstate);
+    }, [stateModalTop, stateModalBottom, stateModalAboutMe]);
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-500 px-[5%]">
