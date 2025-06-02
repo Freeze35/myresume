@@ -134,8 +134,8 @@ const CentralBlock: React.FC<CentralBlockProps> = ({openAboutMe}) => {
                                     CRM-система
                                 </p>
                                 <div>
-                                    <a href="https://github.com/Freeze35/CRM_System <br/>"
-                                       className="text-blue-400 hover:text-blue-500 ">
+                                    <a href="https://github.com/Freeze35/CRM_System"
+                                       className="text-blue-400 hover:text-blue-500">
                                         Ссылка на github
                                     </a>
                                 </div>

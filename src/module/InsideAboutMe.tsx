@@ -21,7 +21,7 @@ const InsideAboutMe: React.FC = () => {
                                 CRM-система
                             </p>
                             <div>
-                                <a href="https://github.com/Freeze35/CRM_System <br/>"
+                                <a href="https://github.com/Freeze35/CRM_System"
                                    className="text-blue-400 hover:text-blue-500 ">
                                     Ссылка на github
                                 </a>
