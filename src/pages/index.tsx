@@ -5,7 +5,7 @@ import Modal from "@/modals/ModalWindowImage";
 import CircularImageFull from "@/module/CircularImageFull";
 import PersonalData from "@/blocks/PersonalData";
 import LeftDownBlock from "@/blocks/LeftDownBlock";
-import InsideWorkExperience from "@/module/InsideWorkExpirience";
+import InsideWorkExperience from "@/module/InsideWorkExperience";
 import ModalLeftBlock from "@/modals/ModalWindowLeftBlock";
 import CentralBlock from "@/blocks/CentralBlock";
 import ModalCentralBlock from "@/modals/ModalWindowCentralBlock";
