@@ -15,7 +15,7 @@ const InsideWorkExperience: React.FC = () => {
                         RBSOFT
                     </p>
                     <p className="text-gray-400 sm:text-sm md:text-base lg:text-lg overflow-wrap break-word">
-                        Май 2023 — Июнь 2024 (1 год 2 месяца)
+                        Май 2023 — Сентябрь 2024 (1 год 5 месяца)
                     </p>
                 </div>
             </div>

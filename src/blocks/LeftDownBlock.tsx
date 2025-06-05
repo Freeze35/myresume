@@ -30,7 +30,7 @@ const LeftDownBlock: React.FC = () => {
                             RBSOFT
                         </p>
                         <p className="text-gray-400 text-ellipsis overflow-hidden whitespace-nowrap sm:text-xs md:text-sm lg:text-base">
-                            Май 2023 — Июнь 2024 (1 год 2 месяца)
+                            Май 2023 — Сентябрь 2024 (1 год 5 месяца)
                         </p>
                     </div>
                 </div>
